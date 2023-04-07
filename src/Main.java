@@ -4,28 +4,20 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n = input.nextInt();
-        int i =(int)Math.sqrt(n);
-        if(isPrime(n,i)){
-            System.out.println("YES");
-        }
-        else {
-            System.out.println("NO");
-        }
 
-
+        System.out.println(factorial(n));
 
 
 
 
     }
-    public static boolean isPrime(int n, int i){
-        if(i <= 1 ){
-            return true;
-
-        } else if (n%i==0) {
-            return false;
+    public static int factorial(int n){
+        if(n==0){
+            return 1;
+        } else if (n==1) {
+            return 1;
         }
-        return isPrime(n,i-1);
+        return n*factorial(n-1);
     }
 
 }
