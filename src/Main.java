@@ -1,19 +1,15 @@
 public class Main {
-
-    public static int compute(int n, int k) {
-        if (k == 0 || k == n) {
-            return 1;
-        } else if (k == 1 || k == n-1) {
-            return n;
+    public static int computeGCD(int a, int b) {
+        if (b == 0) {
+            return a;
         } else {
-            return compute(n-1, k-1) + compute(n-1, k);
+            return computeGCD(b, a % b);
         }
     }
-
     public static void main(String[] args) {
-        int n = 2;
-        int k = 1;
-        int result = compute(n, k);
-        System.out.println(result);
+        int a = 32;
+        int b = 48;
+        int gcd = computeGCD(a, b);
+        System.out.println(gcd);
     }
 }
