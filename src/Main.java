@@ -1,23 +1,19 @@
-
-
 public class Main {
-    public static boolean isAllDigits(String s) {
-        if (s.isEmpty()) {
-            return true;
-        }
-        char c = s.charAt(0);
-        if (Character.isDigit(c)) {
-            return isAllDigits(s.substring(1));
+
+    public static int compute(int n, int k) {
+        if (k == 0 || k == n) {
+            return 1;
+        } else if (k == 1 || k == n-1) {
+            return n;
         } else {
-            return false;
+            return compute(n-1, k-1) + compute(n-1, k);
         }
     }
+
     public static void main(String[] args) {
-        String s1 = "123456";
-        String s2 = "123a12";
-        boolean result1 = isAllDigits(s1);
-        boolean result2 = isAllDigits(s2);
-        System.out.println(result1 ? "Yes" : "No");
-        System.out.println(result2 ? "Yes" : "No");
+        int n = 2;
+        int k = 1;
+        int result = compute(n, k);
+        System.out.println(result);
     }
 }
