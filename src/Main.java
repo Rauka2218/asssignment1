@@ -1,24 +1,23 @@
+
+
 public class Main {
+    public static boolean isAllDigits(String s) {
+        if (s.isEmpty()) {
+            return true;
+        }
+        char c = s.charAt(0);
+        if (Character.isDigit(c)) {
+            return isAllDigits(s.substring(1));
+        } else {
+            return false;
+        }
+    }
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5};
-        reverse(arr);
-        System.out.println("Reversed array: ");
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
-    }
-
-    public static void reverse(int[] arr) {
-        reverseHelper(arr, 0, arr.length - 1);
-    }
-
-    public static void reverseHelper(int[] arr, int start, int end) {
-        if (start >= end) {
-            return;
-        }
-        int temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
-        reverseHelper(arr, start + 1, end - 1);
+        String s1 = "123456";
+        String s2 = "123a12";
+        boolean result1 = isAllDigits(s1);
+        boolean result2 = isAllDigits(s2);
+        System.out.println(result1 ? "Yes" : "No");
+        System.out.println(result2 ? "Yes" : "No");
     }
 }
