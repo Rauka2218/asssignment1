@@ -1,15 +1,19 @@
+import org.w3c.dom.Node;
+
 public class Main {
-    public static int computeGCD(int a, int b) {
-        if (b == 0) {
-            return a;
-        } else {
-            return computeGCD(b, a % b);
-        }
-    }
     public static void main(String[] args) {
-        int a = 32;
-        int b = 48;
-        int gcd = computeGCD(a, b);
-        System.out.println(gcd);
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+
+        myLinkedList.add(10);
+        myLinkedList.add(5);
+        myLinkedList.add(9);
+        myLinkedList.add(4);
+        myLinkedList.add(6);
+        myLinkedList.add(1);
+        myLinkedList.sort();
+        System.out.println();
+        myLinkedList.printList();
+
     }
 }
